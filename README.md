@@ -16,7 +16,15 @@ cryptographic hash or signature.
 Follows [RFC8785: JSON Canonicalization Scheme (JCS)](https://tools.ietf.org/html/rfc8785)
 
 <details><summary><h2>Contents</h2></summary>
+
 <!-- toc -->
+
+- [Fork](#fork)
+- [_Featuring_](#_featuring_)
+- [References](#references)
+
+<!-- tocstop -->
+
 </details>
 
 ![JSON cannon](./OdH7hw1.png)
