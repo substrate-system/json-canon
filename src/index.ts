@@ -2,21 +2,11 @@ export default serialize
 
 export type JSONPrimitive = string|number|boolean|null;
 
-export type JSONValue =
-    |((...args:any[])=>any)
-    |JSONPrimitive
-    |unknown
-    |undefined
-    |symbol
-    |JSONValue[]
-    |{ toJSON:()=>any }
-    |{ [key:string]:JSONValue };
-
 /**
- * @param {JSONValue} value
+ * @param {unknown} value
  * @returns {string}
  */
-export function serialize (value:JSONValue) {
+export function serialize (value:unknown) {
     const type = typeof value
 
     switch (type) {
@@ -49,7 +39,7 @@ export function serialize (value:JSONValue) {
         return serializeArray(value)
     }
 
-    return serializeObject(value as Record<string, JSONValue>)
+    return serializeObject(value as Record<string, unknown>)
 }
 
 function serializeUndefined () {
@@ -105,7 +95,7 @@ function serializeArray (arr:any[]):string {
     return str + ']'
 }
 
-function serializeObject (obj: Record<string, JSONValue>):string {
+function serializeObject (obj: Record<string, unknown>):string {
     const sortedKeys = sort(Object.keys(obj))
     let str = '{'
     const length = sortedKeys.length
