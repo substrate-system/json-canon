@@ -1,63 +1,42 @@
 # `json-canon`
 
-Serialize JSON into a canonical format.
+[![tests](https://img.shields.io/github/actions/workflow/status/substrate-system/json-canon/nodejs.yml?style=flat-square)](https://github.com/substrate-system/json-canon/actions/workflows/nodejs.yml)
+[![types](https://img.shields.io/npm/types/@substrate-system/json-canon?style=flat-square)](README.md)
+[![module](https://img.shields.io/badge/module-ESM%2FCJS-blue?style=flat-square)](README.md)
+[![semantic versioning](https://img.shields.io/badge/semver-2.0.0-blue?logo=semver&style=flat-square)](https://semver.org/)
+[![Common Changelog](https://nichoth.github.io/badge/common-changelog.svg)](./CHANGELOG.md)
+[![install size](https://flat.badgen.net/packagephobia/install/@substrate-system/json-canon)](https://packagephobia.com/result?p=@substrate-system/json-canon)
+[![gzip size](https://flat.badgen.net/bundlephobia/minzip/@substrate-system/json-canon)](https://bundlephobia.com/package/@substrate-system/json-canon)
+[![dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen.svg?style=flat-square)](package.json)
+[![license](https://img.shields.io/badge/license-Big_Time-blue?style=flat-square)](LICENSE)
 
-Safe for generating a consistent cryptographic hash or signature across platforms.
+Serialize JSON into a canonical format &mdash; safe for generating a consistent
+cryptographic hash or signature.
 
 Follows [RFC8785: JSON Canonicalization Scheme (JCS)](https://tools.ietf.org/html/rfc8785)
 
-![JSON cannon](https://i.imgur.com/OdH7hw1.png)
+<details><summary><h2>Contents</h2></summary>
+<!-- toc -->
+</details>
 
-## Features
+![JSON cannon](./OdH7hw1.png)
+
+
+## Fork
+
+This is a fork of
+[ahdinosaur/json-canon](https://github.com/ahdinosaur/json-canon).
+
+## _Featuring_
 
 The JSON Canonicalization Scheme concept in a nutshell:
 
-- Serialization of primitive JSON data types using methods compatible with ECMAScript's `JSON.stringify()`
-- Lexicographic sorting of JSON `Object` properties in a *recursive* process
-- JSON `Array` data is also subject to canonicalization, *but element order remains untouched*
+* Serialization of primitive JSON data types using methods compatible with
+  ECMAScript's `JSON.stringify()`
+* Lexicographic sorting of JSON `Object` properties in a *recursive* process
+* JSON `Array` data is also subject to canonicalization,
+  *but element order remains untouched*
 
-## Serializers
-
-### JavaScript: [`json-canon`](./js/json-canon)
-
-[![npm version](https://img.shields.io/npm/v/json-canon.svg?style=flat-square)](https://www.npmjs.com/package/json-canon) [![download](https://img.shields.io/npm/dt/json-canon?style=flat-square)](https://www.npmjs.com/package/json-canon) [![ci status](https://img.shields.io/github/actions/workflow/status/ahdinosaur/json-canon/js.yml?branch=main&style=flat-square)](https://github.com/ahdinosaur/json-canon/actions/workflows/js.yml)
-
-```js
-const serialize = require('json-canon')
-
-const json = {
-  from_account: "543 232 625-3",
-  to_account: "321 567 636-4",
-  amount: 500,
-  currency: "USD"
-}
-
-console.log(serialize(json))
-// {"amount":500,"currency":"USD","from_account":"543 232 625-3","to_account":"321 567 636-4"}
-```
-
-### Rust: [`json-canon`](./rust/json-canon)
-
-[![crates.io version](https://img.shields.io/crates/v/json-canon.svg?style=flat-square)](https://crates.io/crates/json-canon) [![download](https://img.shields.io/crates/d/json-canon.svg?style=flat-square)](https://crates.io/crates/json-canon) [![docs.rs docs](https://img.shields.io/badge/docs-latest-blue.svg?style=flat-square)](https://docs.rs/json-canon) [![ci status](https://img.shields.io/github/actions/workflow/status/ahdinosaur/json-canon/rust.yml?branch=main&style=flat-square)](https://github.com/ahdinosaur/json-canon/actions/workflows/rust.yml)
-
-```rust
-use json_canon::to_string;
-use serde_json::json;
-
-let data = json!({
-    "from_account": "543 232 625-3",
-    "to_account": "321 567 636-4",
-    "amount": 500,
-    "currency": "USD"
-});
-
-println!("{}", to_string(&data)?);
-// {"amount":500,"currency":"USD","from_account":"543 232 625-3","to_account":"321 567 636-4"}
-```
-
-## Fuzzers
-
-- JavaScript: [`json-canon-fuzz`](./js/json-canon-fuzz)
 
 ## References
 

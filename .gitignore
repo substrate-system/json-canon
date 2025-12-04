@@ -1,4 +1,12 @@
 node_modules
+bundle.js
+.DS_Store
+test/*.js
+dist
+.env
+public
+docs
 npm-debug.log*
 /test-data/generated
 /target
+.claude
