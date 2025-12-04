@@ -5,6 +5,7 @@ export type JSONPrimitive = string|number|boolean|null;
 export type JSONValue =
     |((...args:any[])=>any)
     |JSONPrimitive
+    |unknown
     |undefined
     |symbol
     |JSONValue[]
