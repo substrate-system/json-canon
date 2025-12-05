@@ -1,4 +1,4 @@
-export default serialize
+export default stringify
 
 export type JSONPrimitive = string|number|boolean|null;
 
@@ -6,7 +6,7 @@ export type JSONPrimitive = string|number|boolean|null;
  * @param {unknown} value
  * @returns {string}
  */
-export function serialize (value:unknown) {
+export function stringify (value:unknown) {
     const type = typeof value
 
     switch (type) {
@@ -32,7 +32,7 @@ export function serialize (value:unknown) {
     }
 
     if (typeof (value as any).toJSON === 'function') {
-        return serialize((value as any).toJSON())
+        return stringify((value as any).toJSON())
     }
 
     if (Array.isArray(value)) {
@@ -90,7 +90,7 @@ function serializeArray (arr:any[]):string {
     for (let i = 0; i < length; i++) {
         const val = arr[i]
         if (i !== 0) str += ','
-        str += serialize(val)
+        str += stringify(val)
     }
     return str + ']'
 }
@@ -108,7 +108,7 @@ function serializeObject (obj: Record<string, unknown>):string {
         if (i !== 0 && str.length !== 0) {
             str += ','
         }
-        str += serialize(key) + ':' + serialize(val)
+        str += stringify(key) + ':' + stringify(val)
     }
     return str + '}'
 }
