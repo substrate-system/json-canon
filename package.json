@@ -1,11 +1,8 @@
 {
   "name": "@substrate-system/json-canon",
-  "type": "module",
   "version": "0.1.0",
-  "main": "dist/index.js",
-  "files": [
-    "./dist/*"
-  ],
+  "description": "Canonical JSON",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -16,6 +13,11 @@
       "require": "./dist/*.cjs"
     }
   },
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist/*"
+  ],
   "scripts": {
     "lint": "eslint \"./**/*.{ts,js}\"",
     "test": "npm run build && esbuild ./test/index.ts --bundle --platform=node --format=esm | node --input-type=module",
@@ -32,6 +34,7 @@
     "postversion": "git push --follow-tags && npm publish",
     "prepublishOnly": "npm run build"
   },
+  "dependencies": {},
   "devDependencies": {
     "@substrate-system/debug": "^0.9.24",
     "@substrate-system/tapzero": "^0.10.16",
@@ -48,6 +51,22 @@
     "typescript": "^5.9.2",
     "vite": "^7.0.6"
   },
-  "author": "nichoth <nichoth@nichoth.com> (https://nichoth.com)",
-  "license": "SEE LICENSE IN LICENSE"
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "JSON",
+    "canonical",
+    "format"
+  ],
+  "homepage": "https://github.com/substrate-system/json-canon",
+  "bugs": {
+    "url": "https://github.com/substrate-system/json-canon/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/substrate-system/json-canon.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "nichoth <nichoth@nichoth.com> (https://nichoth.com)"
 }
