@@ -1,7 +1,5 @@
 export default stringify
 
-export type JSONPrimitive = string|number|boolean|null;
-
 /**
  * @param {unknown} value
  * @returns {string}
